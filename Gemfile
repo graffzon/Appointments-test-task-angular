@@ -5,6 +5,7 @@ gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
 
 gem 'devise_token_auth'
+gem 'omniauth'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
