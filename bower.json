@@ -1,0 +1,23 @@
+{
+  "name": "appointments-test-task-ng",
+  "version": "0.0.1",
+  "authors": [
+    "Kirill Zonov <graffzon@gmail.com>"
+  ],
+  "homepage": "https://github.com/graffzon/Appointments-test-task-angular",
+  "license": "MIG",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-route": "^1.5.3",
+    "angular-resource": "^1.5.3",
+    "angular-cookies": "^1.5.3"
+  }
+}
