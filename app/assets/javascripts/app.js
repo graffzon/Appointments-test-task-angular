@@ -25,6 +25,12 @@
       });
 
     $stateProvider
+      .state('dashboard', {
+        url: "/dashboard",
+        templateUrl: "dashboard.html"
+      });
+
+    $stateProvider
       .state('app', {
         abstract: true,
         url: '/',
@@ -34,9 +40,9 @@
 
 
 
-  app.controller('HomeController', ['$scope', '$auth', HomeController]);
+  app.controller('HomeController', ['$scope', '$auth', '$state', HomeController]);
 
-  function HomeController($scope, $auth) {
+  function HomeController($scope, $auth, $state) {
     $scope.counter = 1;
     $scope.plusOne = function() {
       $scope.counter = $scope.counter + 1;
@@ -47,25 +53,9 @@
     $scope.isLoggedIn = function() {
       return $auth.userIsAuthenticated();
     };
-
-    $scope.handleRegBtnClick = function() {
-      $auth.submitRegistration($scope.registrationForm)
-        .then(function(resp) {
-          console.log("success!");
-        })
-        .catch(function(resp) {
-          console.log("Registration Failed! =(" + resp);
-        });
-    };
-    $scope.handleLoginBtnClick = function() {
-      $auth.submitLogin($scope.loginForm)
-        .then(function(resp) {
-          console.log("success!");
-        })
-        .catch(function(resp) {
-          console.log("Registration Failed! =(" + resp);
-        });
-    };
+    $scope.$on('auth:login-success', function(ev, user) {
+      console.log('Welcome ' + user.email);
+      $state.go('dashboard');
+    });
   };
-
 }).call(this);
