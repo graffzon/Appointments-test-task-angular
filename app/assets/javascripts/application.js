@@ -18,6 +18,7 @@
 //= require angular-resource
 //= require angular-cookie
 //= require ng-token-auth
+//= require router
 //= require app
 //= require angular-rails-templates
 //= require angular-ui-router
