@@ -19,6 +19,7 @@
 //= require angular-cookie
 //= require ng-token-auth
 //= require router
+//= require ./controllers/appointments_controller
 //= require app
 //= require angular-rails-templates
 //= require angular-ui-router

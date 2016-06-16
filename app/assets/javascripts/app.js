@@ -1,6 +1,6 @@
 (function() {
 
-  var app = angular.module('appointmentsNg', ['ng-token-auth', 'ipCookie', 'templates', 'ui.router', 'appointmentsNg-router'])
+  var app = angular.module('appointmentsNg', ['ng-token-auth', 'ipCookie', 'templates', 'ui.router', 'appointmentsNg-router', 'appointmentsNg-appointments'])
 
   app.config(function($authProvider) {
     return $authProvider.configure({

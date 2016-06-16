@@ -1,3 +1,9 @@
 <h1>
   Welcome {{user.email}}
 </h1>
+
+<div ng-controller="AppointmentsController as appointments">
+  <div ng-repeat="appointment in appointments.appointments">
+    <p>{{appointment.title}} at {{appointment.start_time | date : 'hh:mm:ss MMM d, y'}}</p>
+  </div>
+</div>
