@@ -26,5 +26,9 @@
       console.log('Welcome ' + user.email);
       $state.go('dashboard');
     });
+    $scope.$on('auth:invalid', function(ev, user) {
+      alert('Sorry, access is restricted only to authorized user');
+      $state.go('login');
+    });
   };
 }).call(this);

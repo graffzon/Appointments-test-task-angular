@@ -23,9 +23,6 @@
           resolve: {
             auth: function($auth) {
               return $auth.validateUser();
-            },
-            error: function() {
-              alert('Access restricted');
             }
           }
         });
