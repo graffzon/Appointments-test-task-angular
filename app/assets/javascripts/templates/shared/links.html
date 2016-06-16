@@ -1,0 +1,10 @@
+<div ng-controller="HomeController as home">
+  <p>{{counter}}</p>
+  <ul>
+    <li ng-click="plusOne()">Hi guys!</li>
+    <li><a ui-sref="sign_up" ng-hide="isLoggedIn()">Sign up</a></li>
+    <li><a ui-sref="login" ng-hide="isLoggedIn()">Log in</a></li>
+    <li><a ng-click='signOut()' ng-show="isLoggedIn()">Log out</a></li>
+  </ul>
+  <div ui-view></div>
+</div>
