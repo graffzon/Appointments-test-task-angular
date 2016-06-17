@@ -5,9 +5,11 @@
     var calendar = this;
     $scope.showAppForm = false;
 
-    $http.get('/appointments.json').success(function(data){
-      calendar.appointments = data;
-    });
+    $scope.reloadAppointmentList = function() {
+      $http.get('/appointments.json').success(function(data){
+        calendar.appointments = data;
+      });
+    };
 
     $scope.newAppointment = function(action) {
       switch (action) {
@@ -19,12 +21,15 @@
 
     $scope.submitAppointment = function(appointmentForm) {
       $http.post('/appointments', appointmentForm).success(function(data) {
-        console.log(data);
+        $scope.showAppForm = false;
+        appointmentForm = {};
+        $scope.reloadAppointmentList();
       }).error(function(data){
         console.log(data);
       });
     };
 
+    $scope.reloadAppointmentList();
   }]);
 
 }).call(this);
