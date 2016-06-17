@@ -15,12 +15,12 @@ Key specs for objects
 * Reminder has status(reminded or not), time to raise remind before appointment.
 * Please add any other restrictions you think are fitable to system objects.
 
-### API
+=== API
 * As a guest, if I know user api key, I can post request to create appointment on a specific date with defined reminder.
 * As a quest, if I know user API key, I can receive the list of user appointments and filter it by date(let’s keep it simple, can specify only one day in params and receive appointments exactly during this day)
 * As a system I should be able to send reminders for active appointments in the specified time by email.
 
-### Technical notes
+=== Technical notes
 Used following technologies:
 * Ruby on Rails
 * Angular.js
