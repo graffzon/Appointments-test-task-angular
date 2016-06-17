@@ -8,4 +8,11 @@
     };
   });
 
+  app.directive("newAppointmentForm", function() {
+    return {
+      restrict: 'E',
+      templateUrl: "appointments/_form.html"
+    };
+  })
+
 }).call(this);

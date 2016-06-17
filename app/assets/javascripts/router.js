@@ -28,6 +28,17 @@
         });
 
       $stateProvider
+        .state('appointment-new', {
+          url: "/appointments/new",
+          templateUrl: "appointments/new.html",
+          resolve: {
+            auth: function($auth) {
+              return $auth.validateUser();
+            }
+          }
+        });
+
+      $stateProvider
         .state('app', {
           abstract: true,
           url: '/',

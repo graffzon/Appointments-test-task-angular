@@ -24,7 +24,6 @@
       $state.go('login');
     });
     $scope.currentPage = function(pageName) {
-      console.log($state.current.name == pageName);
       return $state.current.name == pageName;
     };
   };

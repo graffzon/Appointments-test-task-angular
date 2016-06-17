@@ -1,0 +1,5 @@
+<form ng-show="showAppForm" ng-submit="submitAppointment(appointmentForm)" role="form" ng-init="appointmentForm = {}" class="form-signin col-md-4">
+  <input name="appointment[title]" class="form-control" placeholder="Appointment title" ng-model="appointmentForm.title" required="required" autofocus="">
+  <input name="appointment[start_time]" type="datetime-local" class="form-control" placeholder="Start time" ng-model="appointmentForm.start_time" required="">
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+</form>

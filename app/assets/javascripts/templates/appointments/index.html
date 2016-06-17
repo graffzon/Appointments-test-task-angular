@@ -1,4 +1,7 @@
 <div ng-controller="AppointmentsController as appointments">
+  <button type="button" class="btn btn-primary" ng-click="newAppointment('show')" ng-hide="showAppForm">New appointment</button>
+  <button type="button" class="btn btn-primary" ng-click="newAppointment('close')" ng-show="showAppForm">Close form</button>
+  <new-appointment-form></new-appointment-form>
   <table class="table table-hover">
     <thead>
       <tr>
