@@ -1,9 +1,19 @@
 <div ng-controller="HomeController as home">
-  <ul>
-    <li><a ui-sref="dashboard">Dashboard</a></li>
-    <li><a ui-sref="sign_up" ng-hide="isLoggedIn()">Sign up</a></li>
-    <li><a ui-sref="login" ng-hide="isLoggedIn()">Log in</a></li>
-    <li><a ng-click='signOut()' ng-show="isLoggedIn()">Log out</a></li>
-  </ul>
-  <div ui-view></div>
+  <div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Appointments Tracker</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li ng-class="{active: currentPage('dashboard')}"><a ui-sref="dashboard">Dashboard</a></li>
+          <li ng-class="{active: currentPage('sign_up')}"><a ui-sref="sign_up" ng-hide="isLoggedIn()">Sign up</a></li>
+          <li ng-class="{active: currentPage('login')}"><a ui-sref="login" ng-hide="isLoggedIn()">Log in</a></li>
+          <li><a ng-click='signOut()' ng-show="isLoggedIn()">Log out</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+
+  </div>
+  <div ui-view class="container"></div>
 </div>

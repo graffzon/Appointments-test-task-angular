@@ -1,5 +1,16 @@
 <div ng-controller="AppointmentsController as appointments">
-  <div ng-repeat="appointment in appointments.appointments">
-    <p>{{appointment.title}} at {{appointment.start_time | date : 'hh:mm:ss MMM d, y'}}</p>
-  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Title of appointment</th>
+        <th>Date and time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="appointment in appointments.appointments">
+        <td>{{appointment.title}}</td>
+        <td>{{appointment.start_time | date : 'hh:mm:ss MMM d, y'}}</td>
+      </div>
+    </tbody>
+  </table>
 </div>

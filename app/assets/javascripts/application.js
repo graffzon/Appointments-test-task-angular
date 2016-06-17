@@ -13,14 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require angular
 //= require angular-route
 //= require angular-resource
 //= require angular-cookie
 //= require ng-token-auth
 //= require router
-//= require ./controllers/appointments_controller
 //= require app
 //= require angular-rails-templates
 //= require angular-ui-router
 //= require_tree ./templates
+//= require_tree ./controllers
+//= require_tree ./directives

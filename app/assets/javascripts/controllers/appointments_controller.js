@@ -10,11 +10,4 @@
 
   }]);
 
-  app.directive("appointmentsList", function() {
-    return {
-      restrict: 'E',
-      templateUrl: "appointments/index.html"
-    };
-  });
-
 }).call(this);

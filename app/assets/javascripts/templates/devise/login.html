@@ -1,13 +1,9 @@
-<form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
-  <div class="form-group">
-    <label>email</label>
-    <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control"/>
-  </div>
-
-  <div class="form-group">
-    <label>password</label>
-    <input type="password" name="password" ng-model="loginForm.password" required="required" class="form-control"/>
-  </div>
-
-  <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
+<form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}" class="form-signin col-md-4 col-md-offset-4">
+  <h2 class="form-signin-heading">Please sign in</h2>
+  <input type="email" class="form-control" placeholder="Email address" ng-model="loginForm.email" required="required" autofocus="">
+  <input type="password" class="form-control" placeholder="Password" ng-model="loginForm.password" required="required">
+  <label class="checkbox">
+    <input type="checkbox" value="remember-me"> Remember me
+  </label>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 </form>

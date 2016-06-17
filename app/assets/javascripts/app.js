@@ -1,6 +1,6 @@
 (function() {
 
-  var app = angular.module('appointmentsNg', ['ng-token-auth', 'ipCookie', 'templates', 'ui.router', 'appointmentsNg-router', 'appointmentsNg-appointments'])
+  var app = angular.module('appointmentsNg', ['ng-token-auth', 'ipCookie', 'templates', 'ui.router', 'appointmentsNg-router', 'appointmentsNg-appointments', 'directives-appointments'])
 
   app.config(function($authProvider) {
     return $authProvider.configure({
@@ -23,5 +23,9 @@
       alert('Sorry, access is restricted only to authorized user');
       $state.go('login');
     });
+    $scope.currentPage = function(pageName) {
+      console.log($state.current.name == pageName);
+      return $state.current.name == pageName;
+    };
   };
 }).call(this);
