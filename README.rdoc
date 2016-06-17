@@ -1,28 +1,31 @@
-== README
+== Angular.js Appointments test task
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple appointments management system. It should have a web interface for customers and ability to integrate it through the REST JSON API with the 3rd party applications.
+Here is a short list of specs we would like to be implemented. Everything what isn’t outlined here to you. Feel free to add anything necessary by your opinion.
+* As a user I can register in the system
+* As a user I can see a list of my upcoming and past appointments.
+* As a user I can create new appointment and with as many reminders as I need
+* As a user in the web interface I can see a list of submitted appointments through the API and confirm or cancel them.
 
-Things you may want to cover:
+Key specs for objects
+* Appointment has several statuses:
+..* active
+..* canceled
+* Let’s assume that appointment has a one hour length and can’t be overlapped by another one.
+* Reminder has status(reminded or not), time to raise remind before appointment.
+* Please add any other restrictions you think are fitable to system objects.
 
-* Ruby version
+### API
+* As a guest, if I know user api key, I can post request to create appointment on a specific date with defined reminder.
+* As a quest, if I know user API key, I can receive the list of user appointments and filter it by date(let’s keep it simple, can specify only one day in params and receive appointments exactly during this day)
+* As a system I should be able to send reminders for active appointments in the specified time by email.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+### Technical notes
+Used following technologies:
+* Ruby on Rails
+* Angular.js
+* PostgreSQL
+* Sidekiq
+* Rspec
+* Twitter Bootstrap
+* State Machine
