@@ -7,7 +7,7 @@ gem 'pg', '~> 0.15'
 gem 'devise_token_auth'
 gem 'omniauth'
 
-gem 'state_machine'
+gem 'state_machine', git: "https://github.com/seuros/state_machine"
 
 gem 'angular-rails-templates'
 gem 'sass-rails', '~> 5.0'

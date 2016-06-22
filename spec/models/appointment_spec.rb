@@ -38,15 +38,17 @@ describe Appointment, type: :model do
     expect(Appointment.active.size).to eq 1
   end
 
-  describe "#activate" do
-    it "activates if was disabled" do
-      FactoryGirl.create(:appointment, state: :disabled)
-      expect(subject.activate).to change(Appointment.active.size).from(0).to(1)
+  describe "state_machine" do
+    let(:disabled_appointment) { FactoryGirl.create(:appointment, state: :disabled) }
+
+    describe "#activate" do
+      it { expect {disabled_appointment.activate}.to change{Appointment.active.size}.from(0).to(1) }
+      it { expect(subject.activate).to be_falsey }
     end
 
-    it "throws an error if was already active" do
-      FactoryGirl.create(:appointment)
-      expect(subject.activate).to eq 1
+    describe "#disable" do
+      it { expect {subject.disable}.to change{Appointment.disabled.size}.from(0).to(1) }
+      it { expect(disabled_appointment.disable).to be_falsey }
     end
   end
 
