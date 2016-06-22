@@ -38,6 +38,19 @@ describe Appointment, type: :model do
     expect(Appointment.active.size).to eq 1
   end
 
+  it 'doesn\'t allow to create overlapped appointments' do
+    FactoryGirl.create(:ongoing_appointment)
+    expect(FactoryGirl.create(:appointment, start_time: Time.now + 57.minutes)).to be_falsey
+  end
+
+  describe ".at_date" do
+    it "finds appointments in specific day" do
+      FactoryGirl.create_list(:appointment, 2, start_time: Time.now + 2.days)
+      FactoryGirl.create(:appointment, start_time: Time.now + 1.days)
+      expect(Appointment.at_date(Time.now + 2.days).count).to eq 2
+    end
+  end
+
   describe 'state_machine' do
     let(:disabled_appointment) { FactoryGirl.create(:appointment, state: :canceled) }
 
