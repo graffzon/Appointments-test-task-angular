@@ -6,14 +6,14 @@ class Appointment < ActiveRecord::Base
   scope :upcoming, -> { where('start_time > ?', Time.now) }
   scope :ongoing, -> { where(start_time: (Time.now - 1.hour)..(Time.now)) }
   scope :active, -> { where(state: :active) }
-  scope :disabled, -> { where(state: :disabled) }
+  scope :canceled, -> { where(state: :canceled) }
 
   state_machine :state, initial: :active do
-    event :disable do
-      transition active: :disabled
+    event :cancel do
+      transition active: :canceled
     end
     event :activate do
-      transition disabled: :active
+      transition canceled: :active
     end
   end
 end
