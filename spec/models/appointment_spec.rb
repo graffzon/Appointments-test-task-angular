@@ -52,4 +52,15 @@ describe Appointment, type: :model do
     end
   end
 
+  describe "relations specific code" do
+    it "removes related reminders when removed" do
+      FactoryGirl.create_list(:reminder, 3, appointment: subject)
+      expect { subject.destroy }.to change{ Reminder.count }.from(3).to(0)
+    end
+
+    it "removes related reminders when removed" do
+      FactoryGirl.create_list(:reminder, 3, appointment: subject)
+      expect { subject.disable }.to change{ Reminder.count }.from(3).to(0)
+    end
+  end
 end
