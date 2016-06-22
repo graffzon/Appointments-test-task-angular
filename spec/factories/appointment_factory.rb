@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :appointment do
-    title  Faker::Lorem.sentence(3)
+    title Faker::Lorem.sentence(3)
     creator
 
     factory :past_appointment do

@@ -8,7 +8,7 @@ class AppointmentsController < ApplicationController
     if appointment.save
       render json: appointment
     else
-      render json: {error: appointment.errors}
+      render json: { error: appointment.errors }
     end
   end
 

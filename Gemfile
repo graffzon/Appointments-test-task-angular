@@ -7,7 +7,7 @@ gem 'pg', '~> 0.15'
 gem 'devise_token_auth'
 gem 'omniauth'
 
-gem 'state_machine', git: "https://github.com/seuros/state_machine"
+gem 'state_machine', git: 'https://github.com/seuros/state_machine'
 
 gem 'angular-rails-templates'
 gem 'sass-rails', '~> 5.0'
@@ -30,6 +30,6 @@ end
 
 group :development do
   gem 'web-console', '~> 2.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'rubocop'
 end
