@@ -6,7 +6,7 @@ class Appointment < ActiveRecord::Base
 
   validates :start_time, presence: true
   validates :title, presence: true
-  validate :appointment_arent_overlapped, on: :create
+  validate :appointment_arent_overlapped, on: [:create, :update]
 
   scope :past, -> { where('start_time < ?', Time.now) }
   scope :upcoming, -> { where('start_time > ?', Time.now) }
@@ -31,8 +31,14 @@ class Appointment < ActiveRecord::Base
   private
 
   def appointment_arent_overlapped
-    unless Appointment.where(start_time: (start_time - 1.hour)..(start_time + 1.hour)).empty?
-      errors.add(:start_time, 'Cannot be overlapped with another appointments')
+    if self.present?
+      unless (Appointment.where(start_time: (start_time - 1.hour)..(start_time + 1.hour)) - [self]).empty?
+        errors.add(:start_time, 'Cannot be overlapped with another appointments')
+      end
+    else
+      unless Appointment.where(start_time: (start_time - 1.hour)..(start_time + 1.hour)).empty?
+        errors.add(:start_time, 'Cannot be overlapped with another appointments')
+      end
     end
   end
 end
