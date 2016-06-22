@@ -5,7 +5,7 @@ Here is a short list of specs we would like to be implemented. Everything what i
 * As a user I can register in the system
 * As a user I can see a list of my upcoming and past appointments.
 * As a user I can create new appointment and with as many reminders as I need
-* As a user in the web interface I can see a list of submitted appointments through the API and confirm or cancel them.
+* As a user I can disable an appointment and it's reminders will be disabled too
 
 Key specs for objects
 * Appointment has several statuses:

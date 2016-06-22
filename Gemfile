@@ -7,6 +7,8 @@ gem 'pg', '~> 0.15'
 gem 'devise_token_auth'
 gem 'omniauth'
 
+gem 'state_machine'
+
 gem 'angular-rails-templates'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
