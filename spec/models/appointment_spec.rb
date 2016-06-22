@@ -42,12 +42,12 @@ describe Appointment, type: :model do
     let(:disabled_appointment) { FactoryGirl.create(:appointment, state: :canceled) }
 
     describe '#activate' do
-      it { expect { disabled_appointment.activate }.to change{ Appointment.active.size }.from(0).to(1) }
+      it { expect { disabled_appointment.activate }.to change{ Appointment.active.count }.from(0).to(1) }
       it { expect(subject.activate).to be_falsey }
     end
 
     describe '#cancel' do
-      it { expect { subject.cancel} .to change{ Appointment.canceled.size }.from(0).to(1) }
+      it { expect { subject.cancel} .to change{ Appointment.canceled.count }.from(0).to(1) }
       it { expect(disabled_appointment.cancel).to be_falsey }
     end
   end
@@ -60,7 +60,7 @@ describe Appointment, type: :model do
 
     it "removes related reminders when removed" do
       FactoryGirl.create_list(:reminder, 3, appointment: subject)
-      expect { subject.cancel }.to change{ Reminder.count }.from(3).to(0)
+      expect { subject.cancel }.to change{ Reminder.active.count }.from(3).to(0)
     end
   end
 end

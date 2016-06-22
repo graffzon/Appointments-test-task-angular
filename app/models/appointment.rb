@@ -1,6 +1,6 @@
 class Appointment < ActiveRecord::Base
   belongs_to :creator, class_name: 'User'
-  has_many :reminders
+  has_many :reminders, dependent: :destroy
 
   scope :past, -> { where('start_time < ?', Time.now) }
   scope :upcoming, -> { where('start_time > ?', Time.now) }
@@ -14,6 +14,10 @@ class Appointment < ActiveRecord::Base
     end
     event :activate do
       transition canceled: :active
+    end
+
+    after_transition any => :canceled do |appointment|
+      appointment.reminders.each { |r| r.cancel }
     end
   end
 end
