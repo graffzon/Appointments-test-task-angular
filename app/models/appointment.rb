@@ -17,7 +17,7 @@ class Appointment < ActiveRecord::Base
     end
 
     after_transition any => :canceled do |appointment|
-      appointment.reminders.each { |r| r.cancel }
+      appointment.reminders.each(&:cancel)
     end
   end
 end
