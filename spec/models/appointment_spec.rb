@@ -32,4 +32,22 @@ describe Appointment, type: :model do
       expect(Appointment.ongoing.size).to eq 0
     end
   end
+
+  it "creates active by default" do
+    FactoryGirl.create(:appointment)
+    expect(Appointment.active.size).to eq 1
+  end
+
+  describe "#activate" do
+    it "activates if was disabled" do
+      FactoryGirl.create(:appointment, state: :disabled)
+      expect(subject.activate).to change(Appointment.active.size).from(0).to(1)
+    end
+
+    it "throws an error if was already active" do
+      FactoryGirl.create(:appointment)
+      expect(subject.activate).to eq 1
+    end
+  end
+
 end
